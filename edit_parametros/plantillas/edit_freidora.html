@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_edit_parametros.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="nav_logo">CodingLab</a>
+            
+                <ul class="nav_items">
+                    <li class="nav_items">
+                        <a href="{% url 'inicio' %}" class="nav_link">Home</a>
+                        <a href="{% url 'cambio_tempe' inicio %}" class="nav_link">Temperatura</a>
+                        <a href="{% url 'cambi_aceite' inicio %}" class="nav_link">Aceite</a>
+                        <a href="{% url 'limpieza_puestos' inicio %}" class="nav_link">Limpieza</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </main>
+
+    <div class="titulo">
+        <a href="{% url 'segui_aceite' %}"><img src="{% static 'icon/izquierda.png' %}" alt=""></a>
+        <h1>EDICION: {{freidora_edit.nombre_objeto}}</h1>
+    </div>
+
+
+    <div class="contenedor-content">
+        <div class="contenedor-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-texto">
+                    <label>Nombre de Freidora:</label>
+                    <input type="text" name="nombre_freidora" required value="{{freidora_edit.nombre_objeto}}">
+                </div>
+                <div class="input-select">
+                    <label>Puesto:</label>
+                    <select name="puesto_id">
+                        {% for puesto in puestos %}
+                            {% if freidora_edit.puesto.id == puesto.id %}
+                                <option value="{{puesto.id}}" selected>{{puesto.nombre_puesto}}</option>
+                            {% else %}
+                                <option value="{{puesto.id}}">{{puesto.nombre_puesto}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+        <div class="mensaje-contenedor">
+            <span><img src="{% static 'icon/exclamacion.png' %}" alt="">Aviso:</span>
+            {% if mensaje %}
+                    <div class="mensaje">{{mensaje}}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

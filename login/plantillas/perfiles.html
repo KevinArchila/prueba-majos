@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_perfiles.css' %}">
+    <title>Usuarios de Mr. Majo's</title>
+</head>
+<body>
+    <div class="titulo">
+        <a href="{% url 'log_out_servicio' %}">cerrar sesion</a>
+        <h1>Selecciona un perfil</h1>
+    </div>
+    <div class="slide-container swiper">
+        <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper">
+                {% for perfil in perfiles %}
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"> </span>
+                            <div class="card-image">
+                                <img src="{% static 'img/avatar-1.png' %}" class="card-image">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">{{perfil.nombre}}</h2>
+                            <p class="description">{{perfil.cargo.nombre_cargo}}</p>
+
+                            <a href="{% url 'login_perfil' perfil.id %}" class="button">Inicio Sesion</a>
+                            
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/script_perfiles.js' %}"></script>
+</body>
+</html>

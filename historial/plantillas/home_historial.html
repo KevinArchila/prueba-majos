@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_home_historial.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="nav_logo">CodingLab</a>
+            
+                <ul class="nav_items">
+                    <li class="nav_items">
+                        <a href="{% url 'inicio' %}" class="nav_link">Home</a>
+                        <a href="{% url 'cambio_tempe' inicio %}" class="nav_link">Temperatura</a>
+                        <a href="{% url 'cambi_aceite' inicio %}" class="nav_link">Aceite</a>
+                        <a href="{% url 'limpieza_puestos' inicio %}" class="nav_link">Limpieza</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </main>
+    <div class="titulo">
+        <a href="{% url 'inicio' %}"><img src="{% static 'icon/izquierda.png' %}" alt=""></a>
+        <h1>HISTORIAL</h1>
+    </div>
+
+    <section class="menu">
+        <div class="container">
+            <a href="{% url 'histori_aceite' %}" class="card">
+                <img src="{% static 'icon/freidora.png' %}" alt="Freidoras">
+                <div class="title">Seguimiento aceites</div>
+            </a>
+            <a href="{% url 'histori_tempe' %}" class="card">
+                <img src="{% static 'icon/nevera.png' %}" alt="Tareas">
+                <div class="title">Temperatura de neveras</div>
+            </a>
+            <a href="{% url 'histori_limpie' %}" class="card">
+                <img src="{% static 'icon/familiar.png' %}" alt="Limpieza de Puestos">
+                <div class="title"><span>Limpieza de Puestos</span> </div>
+            </a>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_home_parametros.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="nav_logo">CodingLab</a>
+            
+                <ul class="nav_items">
+                    <li class="nav_items">
+                        <a href="#" class="nav_link">Home</a>
+                        <a href="#" class="nav_link">Productos</a>
+                        <a href="#" class="nav_link">Servicio</a>
+                        <a href="#" class="nav_link">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </main>
+    <div class="titulo">
+        <h1>PARAMETROS DEL SISTEMA</h1>
+    </div>
+    
+    <div class="salir">
+        <a href="{% url 'salir_parametros' %}"><img src="{% static 'icon/cerrar-sesion.png' %}" alt="">Salir</a>
+    </div>
+    
+    <section class="menu">
+        <div class="container">
+            <a href="{% url 'segui_aceite' %}" class="card">
+                <img src="{% static 'icon/freidora.png' %}" alt="Freidoras">
+                <div class="title">Seguimiento aceites</div>
+            </a>
+            <a href="{% url 'tempe_neveras' %}" class="card">
+                <img src="{% static 'icon/nevera.png' %}" alt="Tareas">
+                <div class="title">Temperatura de neveras</div>
+            </a>
+            <a href="{% url 'limpie_puesto' %}" class="card">
+                <img src="{% static 'icon/familiar.png' %}" alt="Limpieza de Puestos">
+                <div class="title"><span>Limpieza de Puestos</span> </div>
+            </a>
+            <a href="{% url 'perfil' %}" class="card">
+                <img src="{% static 'icon/usuario.png' %}" alt="Limpieza de Puestos">
+                <div class="title"><span>Perfiles</span> </div>
+            </a>
+            <a href="{% url 'puestos' %}" class="card">
+                <img src="{% static 'icon/cocina.png' %}" alt="Limpieza de Puestos">
+                <div class="title"><span>Puestos</span> </div>
+            </a>
+            <a href="{% url 'cargos' %}" class="card">
+                <img src="{% static 'icon/actuacion.png' %}" alt="Limpieza de Puestos">
+                <div class="title"><span>Cargos</span> </div>
+            </a>
+        </div>
+    </section>
+</body>
+</html>

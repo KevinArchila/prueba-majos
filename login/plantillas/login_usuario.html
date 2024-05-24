@@ -1,0 +1,64 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/estilo_login_user.css' %}">
+    <!--Unicons-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+<body>
+    <!--Header-->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="nav_logo">CodingLab</a>
+
+            <ul class="nav_items">
+                <li class="nav_items">
+                    <a href="#" class="nav_link">Home</a>
+                    <a href="#" class="nav_link">Productos</a>
+                    <a href="#" class="nav_link">Servicio</a>
+                    <a href="#" class="nav_link">Contacto</a>
+                </li>
+            </ul>
+    
+            <button class="button" id="form-open">Login</button>
+        </nav>
+    </header>
+
+    <!--Home-->
+    <section class="home">
+        <div class="form_container">
+            <i class="uil uil-times form_close"></i>
+            <!--login From-->
+            <div class="form login_form">
+                <form action="#" method="POST">
+                    {% csrf_token %}
+                    <h2>Login</h2>
+                    {% if mensaje %}
+                        <div class="error">
+                            <span>{{mensaje}}</span>
+                        </div>  
+                    {% endif %}
+                    <div class="input_box">
+                        <input type="text" placeholder="Nombre de usuario" value="{{campo_name}}" required name="nombre">
+                        <i class="uil uil-envelope-alt email"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" value="{{campo_password}}" placeholder="Contraseña" required name="contra">
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+                    <button class="button" type="submit">Iniciar Sesion</button>
+
+                </form>
+            </div>
+            <!--Signup from-->
+        </div>
+    </section>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

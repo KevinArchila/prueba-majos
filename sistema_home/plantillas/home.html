@@ -1,0 +1,60 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/style_home_system.css' %}">
+</head>
+<body>
+  <main class="container-nav">
+    <header class="header">
+      <nav class="nav">
+          <a href="#" class="nav_logo">CodingLab</a>
+  
+          <ul class="nav_items">
+              <li class="nav_items">
+                  <a href="{% url 'inicio' %}" class="nav_link">Home</a>
+                  <a href="{% url 'cambio_tempe' inicio %}" class="nav_link">Temperatura</a>
+                  <a href="{% url 'cambi_aceite' inicio %}" class="nav_link">Aceite</a>
+                  <a href="{% url 'limpieza_puestos' inicio %}" class="nav_link">Limpieza</a>
+                  <a href="{% url 'cerrar_sesion_perfil' %}" class="button">Cerrar Sesion</a>
+              </li>
+          </ul>
+          
+      </nav>
+    </header>
+  </main>
+  
+    
+    <section class="menu">
+      <div class="container">
+        <a href="{% url 'limpieza_puestos' inicio %}" class="card">
+          <img src="{% static 'img/familiar.png' %}" alt="Limpieza de Puestos">
+          <div class="title"><span>Limpieza de Puestos</span> </div>
+        </a>
+        <a href="{% url 'cambi_aceite' inicio %}" class="card">
+          <img src="{% static 'img/freidora.png' %}" alt="Freidoras">
+          <div class="title">Seguimiento aceites</div>
+        </a>
+        <a href="{% url 'cambio_tempe' inicio %}" class="card">
+          <img src="{% static 'img/nevera.png' %}" alt="Tareas">
+          <div class="title">Temperatura de neveras</div>
+        </a>
+        
+      </div>
+    </section>
+    
+    <footer>
+
+      <div class="footer">
+        <a href="{% url 'home_historial' %}">Historial</a>
+        {% if cargos.permiso == "Admin" %}
+          <a href="{% url 'login_paramet' %}">Parametros</a>
+        {% endif %}
+      </div>
+      
+    </footer>
+</body>
+</html>

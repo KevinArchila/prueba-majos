@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_historial.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="nav_logo">CodingLab</a>
+            
+                <ul class="nav_items">
+                    <li class="nav_items">
+                        <a href="{% url 'inicio' %}" class="nav_link">Home</a>
+                        <a href="{% url 'cambio_tempe' 'inicio' %}" class="nav_link">Temperatura</a>
+                        <a href="{% url 'cambi_aceite' 'inicio' %}" class="nav_link">Aceite</a>
+                        <a href="{% url 'limpieza_puestos' 'inicio' %}" class="nav_link">Limpieza</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </main>
+
+
+    <div class="titulo">
+        <a href="{% url 'histori_aceite' %}"><img src="{% static 'img/izquierda.png' %}" alt=""></a>
+        <h1>EDICION DE HISTORIAL SEGUIMIENTO ACEITE</h1>
+    </div>
+
+    <div class="contenedor-content">
+        <div class="contenedor-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-select">
+                    <label>Freidora</label>
+                    <select name="freidora">
+                        {% for freidora in freidoras %}
+                            {% if freidora_edit.registro_objeto.id == freidora.id %}
+                                <option value="{{freidora.id}}" selected>{{freidora.nombre_objeto}}</option>
+                            {% else %}
+                                <option value="{{freidora.id}}">{{freidora.nombre_objeto}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-select">
+                    <label>Horario</label>
+                    <select name="horario">
+                        {% for horario in horarios %}
+                            {% if horario == freidora_edit.horario %}
+                                
+                                <option value="{{horario}}" selected>{{horario}}</option>
+                            {% else %}
+                            
+                                <option value="{{horario}}">{{horario}}</option>
+                            {% endif %}
+                            <p>hola</p>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+        <div class="mensaje-contenedor">
+            <span><img src="{% static 'icon/exclamacion.png' %}" alt="">Avisos:</span>
+            {% if mensaje %}
+                <div class="mensaje">{{mensaje}}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

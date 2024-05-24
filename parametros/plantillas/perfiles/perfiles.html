@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_parametros.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="nav_logo">CodingLab</a>
+            
+                <ul class="nav_items">
+                    <li class="nav_items">
+                        <a href="#" class="nav_link">Home</a>
+                        <a href="#" class="nav_link">Productos</a>
+                        <a href="#" class="nav_link">Servicio</a>
+                        <a href="#" class="nav_link">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </main>
+
+
+    <div class="titulo">
+        <a href="{% url 'home_parametros' %}"><img src="{% static 'img/izquierda.png' %}" alt=""></a>
+        <h1>REGISTRO DE PERFIL</h1>
+    </div>
+
+    <a href="{% url 'registro_perfil' %}" class="link-boton">Registrar perfil <img src="{% static 'icon/agregar.png' %}" alt=""></a>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre Perfil</th>
+                    <th>Cargo</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for perfil in perfiles %}
+                    <tr>
+                        <td>{{perfil.nombre}}</td>
+                        <td>{{perfil.cargo.nombre_cargo}}</td>
+                        {% if perfil_uso == perfil.id %}
+                            <td colspan="2"><strong>Perfil en uso</strong></td>
+                        {% else %}
+                            <td><a class="btn btn-primary" href="{% url 'edit_perfil' perfil.id %}" role="button"><img src="{% static 'icon/editar(1).png' %}" alt="" width="26px"></a></td>
+                            <td><a class="btn btn-primary" href="{% url 'delet_perfil' perfil.id %}" role="button"><img src="{% static 'icon/borrar.png' %}" alt="" width="30px"></a></td>
+                        {% endif %}
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+
+  
+  .container-nav{
+    padding-bottom: 85px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Helvetica;
+}
+
+a {
+    text-decoration: none;
+  }
+  
+  .separador{
+    padding-bottom: 80px;
+  }
+  
+  .header{
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    z-index: 100;
+    padding: 0 20px;
+    background-color: #0000007e;
+    
+    backdrop-filter: blur(10px);   /* aqui agregue el blur para opacidad*/
+  }
+  .nav{
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    
+  }
+  
+  .nav,
+  .nav_items{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav_logo,
+  .nav_link{
+    color: #ffffff;
+  }
+  .nav_logo{
+    font-size: 25px;
+  }
+  .nav_link:hover{
+    color: #d9d9d9;
+  
+  }
+  .nav_items {
+    column-gap: 25px;
+    padding-right: 30px;
+  }
+
+
+.salir img{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.salir a{
+    background-color: #ffe100;
+    border-radius: 9px;
+    border: solid 1px black;
+    color: black;
+    font-size: 20px;
+    width: fit-content;
+    padding: 15px;
+}
+
+.salir{
+    margin: 30px 30px;
+}
+
+
+   
+   a{
+        text-decoration: none !important;
+      }
+      
+      .card .title {
+        margin-top: 10px;
+        color: rgb(27, 27, 27); 
+        cursor: default; 
+        text-decoration: none;
+        background-color: rgb(255, 217, 0);
+        padding: 15px;
+        border: solid 2px rgb(27, 27, 27);
+        border-radius: 20px;
+      }
+  
+      .card .title:hover{
+          color: rgb(255, 217, 0);
+          background-color: rgba(27, 27, 27, 0.623);
+          
+          transition: 0.50s;
+      }
+      
+      .card .title a {
+        text-decoration: none; 
+      }
+      
+      .titulo{
+        background-color: #FFC300;
+        border-bottom: solid 6px #d8a600;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        
+    }
+      
+    .titulo h1{
+        font-size: 35px;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+      
+    .titulo img{
+        margin-left: 10px;
+        margin-top: 15px;
+        width: 50px;
+        height: 50px;
+    }
+      
+      /* contenedores */
+      
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0px;
+      }
+      
+      .card {
+        box-shadow: 8px 7px 15px black;
+        background-color: #3d3d3d;
+        width: 220px;
+        border: 2px solid #080808;
+        border-radius: 8px;
+        margin: 5% 20px;
+        padding: 30px 10px;
+        text-align: center;
+        transition: all 0.3s ease;
+        /* margin-bottom: 23.8vh; */
+      }
+  
+    
+  
+      
+      .card:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .card img {
+        width: 150px;
+        height: 150px;
+      }
+      .card .title {
+        margin-top: 10px;
+      }
+      
+      footer{
+  
+          position: fixed; /* Fija el footer en la parte inferior de la pantalla */
+          bottom: 0; /* Coloca el footer al borde inferior de la pantalla */
+          left: 0; /* Asegura que el footer esté alineado a la izquierda */
+          width: 100%; /* Ancho completo del footer */
+          background-color: #3f3f3f;
+          padding: 1px 20px;
+          text-align: center; /* Centra el texto en el footer */
+        }
+        
+  
+      .footer {
+        background-color: #ffe100;
+        
+        
+        padding: 20px 20px;
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan en dispositivos más pequeños */
+        
+        margin-top: auto;
+      }
+      .footer a {
+        margin: 0px 8px;
+        background-color: #cab61a;
+        color: #804000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 150px; /* Ancho fijo de los botones */
+      }
+      @media (max-width: 768px) {
+        .footer a {
+          width: auto; /* Cambia el ancho de los botones a automático en dispositivos más pequeños */
+        }
+      }
+   
+  
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 10px;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .card {
+          width: calc(50% - 20px);
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .card {
+          width: calc(100% - 20px);
+        }
+      }
+      
+    

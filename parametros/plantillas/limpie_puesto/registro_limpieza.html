@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_parametros.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+                <a href="#" class="nav_logo">CodingLab</a>
+            
+                <ul class="nav_items">
+                    <li class="nav_items">
+                        <a href="#" class="nav_link">Home</a>
+                        <a href="#" class="nav_link">Productos</a>
+                        <a href="#" class="nav_link">Servicio</a>
+                        <a href="#" class="nav_link">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </main>
+
+
+    <div class="titulo">
+        <a href="{% url 'limpie_puesto' %}"><img src="{% static 'img/izquierda.png' %}" alt=""></a>
+        <h1>REGISTRO DE LIMPIEZA</h1>
+    </div>
+
+    <div class="contenedor-content">
+        <div class="contenedor-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-texto">
+                    <label>Nombre de la limpieza:</label>
+                    <input type="text" name="nombre_limpie" required>
+                </div>
+                <div class="input-select">
+                    <label>Puesto de la limpieza:</label>
+                    <select name="puesto">
+                        {% for puesto in puestos %}
+                            <option value="{{puesto.id}}">{{puesto.nombre_puesto}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-texto">
+                    <label>Hora:</label>
+                    <input type="time" required name="hora">
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+        <div class="mensaje-contenedor">
+            <span><img src="{% static 'icon/exclamacion.png' %}" alt="">Aviso:</span>
+            {% if mensaje %}
+                    <div class="mensaje">{{mensaje}}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

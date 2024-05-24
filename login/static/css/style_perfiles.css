@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+.titulo{
+    background-color: #ffe150;
+    border-bottom: solid 7px #ddc445;
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.titulo h1{
+    margin-left: 210px;
+    margin-top: 5px;
+    font-size: 40px;
+}
+
+.titulo a{
+    text-decoration: none;
+    background-color: #333;
+    color: #ffe150;
+    margin: 10px;
+    padding-bottom: 5px;
+    padding: 7px;
+    border-radius: 9px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.slide-container {
+    max-width: 1120px;
+    width: 100%;
+    padding: 40px;
+}
+
+.slide-content {
+    margin: 0 40px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.card {
+    width: 320px;
+    border-radius: 25px;
+    background: #3a3a3a;
+    min-height: 300px;
+    display: flex; 
+    flex-direction: column; 
+}
+
+.image-content,
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.card-content {
+    justify-content: space-between; /* Añadido */
+    flex: 1; /* Asegura que tome el espacio disponible */
+}
+
+.image-content {
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffe150;
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #ffe150;
+}
+
+.overlay::after {
+    border-radius: 0 25px 0 0;
+    background-color: #3a3a3a;
+}
+
+.card-image {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+}
+
+.card-image .card-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border: 4px solid #ffe150;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffe150;
+}
+
+.description {
+    font-size: 16px;
+    color: #c4c4c4;
+    text-align: center;
+}
+
+.button {
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    color: #3a3a3a;
+    padding: 8px 16px;
+    background-color: #ffe150;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto; /* Añadido para empujar el botón hacia abajo */
+}
+
+.button:hover {
+    background: #ffe150;
+}
+
+.swiper-navBtn {
+    color: #c29e00;
+    transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover {
+    color: #333;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+    font-size: 40px;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-pagination-bullet {
+    background-color: #333;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ffe150;
+}
+
+@media screen and (max-width: 768px) {
+    .slide-content {
+        margin: 0 10px;
+    }
+
+    .swiper-navBtn {
+        display: none;
+    }
+}
